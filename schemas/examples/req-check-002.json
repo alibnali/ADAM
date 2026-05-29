@@ -1,0 +1,37 @@
+{
+  "request_id": "req-check-002",
+  "schema_version": "1.0",
+  "language": "en",
+  "discipline": "structural",
+  "intent": {
+    "deliverable_type": "check_only",
+    "element_type": "isolated_footing",
+    "description": "Verify bearing and punching shear for existing footing dimensions."
+  },
+  "units": {
+    "length": "m",
+    "force": "kN",
+    "stress": "MPa"
+  },
+  "inputs": {
+    "column_load_kN": 650,
+    "column_size_m": { "width": 0.30, "depth": 0.50 },
+    "footing_size_m": { "width": 2.0, "depth": 2.0 },
+    "footing_thickness_mm": 450,
+    "bearing_capacity_kPa": 120,
+    "foundation_depth_m": 1.2,
+    "concrete_fck_MPa": 25,
+    "steel_fyk_MPa": 420,
+    "cover_mm": 50,
+    "rebar_top_bottom": "12T16"
+  },
+  "design_code": {
+    "primary": "ACI 318-19"
+  },
+  "required_outputs": {
+    "drawing": false,
+    "report": true,
+    "validation_log": true,
+    "json_result": true
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/CanonicalDesignRequest.json",
+  "title": "CanonicalDesignRequest",
+  "description": "Unified input contract for all ADAM engineering requests. Version 1.0.",
+  "type": "object",
+  "required": [
+    "request_id",
+    "schema_version",
+    "discipline",
+    "intent",
+    "units",
+    "inputs",
+    "required_outputs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "description": "Unique identifier for this request.",
+      "pattern": "^[a-zA-Z0-9_-]{4,64}$"
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Version of CanonicalDesignRequest schema in use.",
+      "enum": ["1.0"]
+    },
+    "language": {
+      "type": "string",
+      "enum": ["ar", "en", "ar-en"],
+      "default": "ar"
+    },
+    "discipline": {
+      "type": "string",
+      "enum": ["structural", "architectural", "civil", "mep", "unknown"]
+    },
+    "intent": {
+      "type": "object",
+      "required": ["deliverable_type", "element_type"],
+      "additionalProperties": false,
+      "properties": {
+        "deliverable_type": {
+          "type": "string",
+          "enum": ["design_and_draw", "check_and_draw", "draw_only", "check_only", "report_only"]
+        },
+        "element_type": { "type": "string" },
+        "description": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "units": {
+      "type": "object",
+      "required": ["length", "force", "stress"],
+      "additionalProperties": false,
+      "properties": {
+        "length": { "type": "string", "enum": ["mm", "cm", "m"] },
+        "force":  { "type": "string", "enum": ["kN", "N", "kip", "ton"] },
+        "stress": { "type": "string", "enum": ["MPa", "kPa", "kN/m2", "psi"] },
+        "area":   { "type": "string", "enum": ["mm2", "cm2", "m2"] }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": true,
+      "minProperties": 1
+    },
+    "design_code": {
+      "type": "object",
+      "properties": {
+        "primary":       { "type": "string" },
+        "supplementary": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "required_outputs": {
+      "type": "object",
+      "required": ["drawing", "report", "validation_log"],
+      "additionalProperties": false,
+      "properties": {
+        "drawing":        { "type": "boolean" },
+        "report":         { "type": "boolean" },
+        "validation_log": { "type": "boolean" },
+        "json_result":    { "type": "boolean", "default": true }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "project_name": { "type": "string" },
+        "engineer":     { "type": "string" },
+        "revision":     { "type": "string" },
+        "notes":        { "type": "string" }
+      }
+    }
+  }
+}

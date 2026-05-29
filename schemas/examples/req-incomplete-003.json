@@ -1,0 +1,25 @@
+{
+  "_comment": "INCOMPLETE REQUEST — triggers clarification gate. Missing: column_load_kN, bearing_capacity_kPa, foundation_depth_m, concrete_fck_MPa, steel_fyk_MPa.",
+  "request_id": "req-incomplete-003",
+  "schema_version": "1.0",
+  "language": "ar",
+  "discipline": "structural",
+  "intent": {
+    "deliverable_type": "design_and_draw",
+    "element_type": "isolated_footing",
+    "description": "قاعدة منفصلة تحت عمود 40x40"
+  },
+  "units": {
+    "length": "m",
+    "force": "kN",
+    "stress": "MPa"
+  },
+  "inputs": {
+    "column_size_m": { "width": 0.40, "depth": 0.40 }
+  },
+  "required_outputs": {
+    "drawing": true,
+    "report": true,
+    "validation_log": true
+  }
+}
