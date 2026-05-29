@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/DrawingDocument.json",
+  "title": "DrawingDocument",
+  "description": "Complete drawing assembled by the DrawingComposer. Input to the OutputRenderer.",
+  "type": "object",
+  "required": ["document_id", "sheet_size", "orientation", "scale", "layers_used", "primitives"],
+  "additionalProperties": false,
+  "properties": {
+    "document_id":  { "type": "string" },
+    "sheet_size":   { "type": "string", "enum": ["A0","A1","A2","A3","A4","ARCH-D","ARCH-E","24x36","30x42"] },
+    "orientation":  { "type": "string", "enum": ["landscape","portrait"] },
+    "scale":        { "type": "string" },
+    "layers_used":  { "type": "array", "items": { "type": "string" } },
+    "primitives":   { "type": "array", "items": { "$ref": "DrawingPrimitive.json" } },
+    "viewports":    { "type": "array", "items": { "type": "object" } },
+    "metadata":     { "type": "object" }
+  }
+}

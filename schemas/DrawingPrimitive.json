@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/DrawingPrimitive.json",
+  "title": "DrawingPrimitive",
+  "description": "Atomic unit of an ADAM drawing. Format-agnostic.",
+  "type": "object",
+  "required": ["id", "type", "layer", "geometry"],
+  "additionalProperties": false,
+  "properties": {
+    "id":       { "type": "string", "pattern": "^PRM-[A-Z]+-[0-9]+$" },
+    "type":     { "type": "string", "enum": ["line","polyline","polygon","rect","circle","arc","text","dim_linear","dim_angular","hatch","rebar","symbol","viewport","title_block"] },
+    "layer":    { "type": "string" },
+    "geometry": { "type": "object", "additionalProperties": true },
+    "style": {
+      "type": "object",
+      "properties": {
+        "color":      { "type": "string" },
+        "linetype":   { "type": "string" },
+        "lineweight": { "type": "number" },
+        "fill":       { "type": "string" },
+        "opacity":    { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "element_ref": { "type": "string" },
+        "quantity":    { "type": "number" },
+        "unit":        { "type": "string" },
+        "tag":         { "type": "string" }
+      }
+    },
+    "z_order": { "type": "integer" },
+    "visible":  { "type": "boolean", "default": true }
+  }
+}

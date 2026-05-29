@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/RenderedOutput.json",
+  "title": "RenderedOutput",
+  "description": "Final output of the ADAM OutputRenderer.",
+  "type": "object",
+  "required": ["request_id", "outputs"],
+  "additionalProperties": false,
+  "properties": {
+    "request_id": { "type": "string" },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["format", "content_type", "data"],
+        "properties": {
+          "format":       { "type": "string", "enum": ["svg","dxf","pdf","json","png"] },
+          "content_type": { "type": "string" },
+          "data":         { "type": "string" },
+          "size_bytes":   { "type": "integer" },
+          "warnings":     { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
