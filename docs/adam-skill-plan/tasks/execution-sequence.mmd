@@ -1,0 +1,37 @@
+graph TD
+    T01[P1-T01 Product Charter] --> T02[P1-T02 Canonical Request]
+    T02 --> T03[P1-T03 Canonical Result]
+    T02 --> T04[P1-T04 Units Policy]
+    T03 --> T05[P1-T05 Layer Standard]
+    T04 --> T05
+    T02 --> T06[P1-T06 Failure Taxonomy]
+    T03 --> T06
+    T02 --> T07[P1-T07 Prompt Governance]
+    T03 --> T07
+    T06 --> T07
+
+    T07 --> T201[P2-T01 Classifier]
+    T02 --> T202[P2-T02 Normalizer]
+    T06 --> T202
+    T202 --> T203[P2-T03 Assumption Mgr]
+    T03 --> T204[P2-T04 Drawing Primitives]
+    T05 --> T204
+    T204 --> T205[P2-T05 Drawing Macros]
+    T204 --> T206[P2-T06 MCP Adapter]
+    T06 --> T206
+    T03 --> T207[P2-T07 Report Builder]
+    T203 --> T207
+    T206 --> T208[P2-T08 Observability]
+    T207 --> T208
+
+    T01 --> T301[P3-T01 Structural Scope]
+    T301 --> T302[P3-T02 Structural Schemas]
+    T302 --> T303[P3-T03 Calc Specs]
+    T205 --> T304[P3-T04 Drawing Specs]
+    T303 --> T304
+    T303 --> T305[P3-T05 Golden Scenarios]
+    T304 --> T305
+    T207 --> T306[P3-T06 Report Templates]
+    T303 --> T306
+    T305 --> T307[P3-T07 Reviewer Loop]
+    T306 --> T307
