@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/DrawingLayerStandard.json",
+  "title": "DrawingLayerStandard",
+  "description": "Machine-readable layer registry for ADAM DXF output. One entry per layer.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["name", "aci_color", "linetype", "lineweight_mm", "discipline", "purpose"],
+    "additionalProperties": false,
+    "properties": {
+      "name":           { "type": "string" },
+      "aci_color":      { "type": "integer", "minimum": 1, "maximum": 256 },
+      "linetype":       { "type": "string", "enum": ["CONTINUOUS", "DASHED", "CENTER", "PHANTOM", "DOT"] },
+      "lineweight_mm":  { "type": "number", "enum": [0.13, 0.18, 0.25, 0.35, 0.50] },
+      "discipline":     { "type": "string", "enum": ["shared", "structural", "architectural", "civil", "mep"] },
+      "element_types":  { "type": "array", "items": { "type": "string" } },
+      "purpose":        { "type": "string" },
+      "mandatory":      { "type": "boolean" }
+    }
+  }
+}
