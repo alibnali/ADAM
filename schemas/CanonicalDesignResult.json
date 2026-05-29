@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/CanonicalDesignResult.json",
+  "title": "CanonicalDesignResult",
+  "description": "Unified output contract for all ADAM engineering results. Version 1.0.",
+  "type": "object",
+  "required": ["request_id", "schema_version", "status", "discipline", "element_type", "assumption_log", "validation_log", "errors"],
+  "additionalProperties": false,
+  "properties": {
+    "request_id":   { "type": "string" },
+    "schema_version": { "type": "string", "enum": ["1.0"] },
+    "status": {
+      "type": "string",
+      "enum": ["success", "success_with_warnings", "clarification_required", "partial", "failed"]
+    },
+    "discipline":   { "type": "string", "enum": ["structural", "architectural", "civil", "mep", "unknown"] },
+    "element_type": { "type": "string" },
+    "computed":     { "type": "object", "additionalProperties": true },
+    "drawing": {
+      "type": "object",
+      "required": ["format", "content_base64"],
+      "additionalProperties": false,
+      "properties": {
+        "format":         { "type": "string", "enum": ["dxf", "svg", "pdf"] },
+        "content_base64": { "type": "string" },
+        "filename":       { "type": "string" },
+        "sheet_title":    { "type": "string" },
+        "scale":          { "type": "string" },
+        "layers":         { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "report": {
+      "type": "object",
+      "required": ["format", "content"],
+      "additionalProperties": false,
+      "properties": {
+        "format":   { "type": "string", "enum": ["markdown", "html", "pdf"] },
+        "content":  { "type": "string" },
+        "language": { "type": "string", "enum": ["ar", "en", "ar-en"] },
+        "sections": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "assumption_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "assumed_value", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "field":          { "type": "string" },
+          "assumed_value":  {},
+          "reason":         { "type": "string" },
+          "code_reference": { "type": "string" }
+        }
+      }
+    },
+    "validation_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["check_id", "description", "result"],
+        "additionalProperties": false,
+        "properties": {
+          "check_id":       { "type": "string" },
+          "description":    { "type": "string" },
+          "result":         { "type": "string", "enum": ["pass", "fail", "warning", "skipped"] },
+          "computed_value": {},
+          "limit_value":    {},
+          "unit":           { "type": "string" },
+          "code_reference": { "type": "string" },
+          "note":           { "type": "string" }
+        }
+      }
+    },
+    "clarification_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "question"],
+        "additionalProperties": false,
+        "properties": {
+          "field":    { "type": "string" },
+          "question": { "type": "string" },
+          "hint":     { "type": "string" },
+          "example":  {}
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "message"],
+        "additionalProperties": false,
+        "properties": {
+          "code":     { "type": "string" },
+          "message":  { "type": "string" },
+          "field":    { "type": "string" },
+          "severity": { "type": "string", "enum": ["error", "warning", "info"] }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "processed_at":   { "type": "string", "format": "date-time" },
+        "engine_version": { "type": "string" },
+        "processing_ms":  { "type": "number" }
+      }
+    }
+  }
+}

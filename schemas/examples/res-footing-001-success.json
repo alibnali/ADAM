@@ -1,0 +1,91 @@
+{
+  "request_id": "req-footing-001",
+  "schema_version": "1.0",
+  "status": "success",
+  "discipline": "structural",
+  "element_type": "isolated_footing",
+  "computed": {
+    "footing_size_m": { "width": 2.4, "depth": 2.4 },
+    "footing_thickness_mm": 450,
+    "net_bearing_pressure_kPa": 138.9,
+    "punching_shear_ratio": 0.62,
+    "one_way_shear_ratio": 0.71,
+    "rebar_bottom_x": "10T16@220mm",
+    "rebar_bottom_y": "10T16@220mm",
+    "rebar_area_provided_mm2": 2011,
+    "rebar_area_required_mm2": 1840
+  },
+  "drawing": {
+    "format": "dxf",
+    "content_base64": "<base64-encoded-dxf-content>",
+    "filename": "isolated_footing_req-footing-001.dxf",
+    "sheet_title": "\u0642\u0627\u0639\u062f\u0629 \u0645\u0646\u0641\u0635\u0644\u0629 \u2014 \u0645\u0634\u0631\u0648\u0639 \u0627\u0644\u0645\u0628\u0646\u0649 \u0627\u0644\u0625\u062f\u0627\u0631\u064a",
+    "scale": "1:50",
+    "layers": ["OUTLINE", "REBAR", "DIMENSIONS", "TITLE_BLOCK", "ANNOTATIONS"]
+  },
+  "report": {
+    "format": "markdown",
+    "language": "ar",
+    "content": "# \u062a\u0642\u0631\u064a\u0631 \u062a\u0635\u0645\u064a\u0645 \u0642\u0627\u0639\u062f\u0629 \u0645\u0646\u0641\u0635\u0644\u0629\n\n## \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u062f\u062e\u0644\u0629\n...\n",
+    "sections": [
+      "\u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u062f\u062e\u0644\u0629",
+      "\u062a\u062d\u062f\u064a\u062f \u0623\u0628\u0639\u0627\u062f \u0627\u0644\u0642\u0627\u0639\u062f\u0629",
+      "\u0641\u062d\u0635 \u0636\u063a\u0637 \u0627\u0644\u062a\u0631\u0628\u0629",
+      "\u0641\u062d\u0635 \u0627\u0644\u0642\u0635 \u0627\u0644\u0645\u062b\u0642\u0628\u064a",
+      "\u0641\u062d\u0635 \u0627\u0644\u0642\u0635 \u0627\u0644\u0623\u062d\u0627\u062f\u064a",
+      "\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u062a\u0633\u0644\u064a\u062d",
+      "\u0645\u0644\u062e\u0635 \u0627\u0644\u0646\u062a\u0627\u0626\u062c"
+    ]
+  },
+  "assumption_log": [
+    {
+      "field": "soil_unit_weight_kNm3",
+      "assumed_value": 18,
+      "reason": "\u0642\u064a\u0645\u0629 \u0645\u0642\u062f\u0645\u0629 \u0645\u0646 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u2014 \u0644\u0645 \u064a\u062a\u0645 \u0627\u0641\u062a\u0631\u0627\u0636\u0647\u0627"
+    }
+  ],
+  "validation_log": [
+    {
+      "check_id": "BEARING-001",
+      "description": "\u0641\u062d\u0635 \u0636\u063a\u0637 \u0627\u0644\u062a\u0631\u0628\u0629 \u0627\u0644\u0635\u0627\u0641\u064a",
+      "result": "pass",
+      "computed_value": 138.9,
+      "limit_value": 150,
+      "unit": "kPa",
+      "code_reference": "ACI 318-19 \u00a713.2"
+    },
+    {
+      "check_id": "PUNCHING-001",
+      "description": "\u0641\u062d\u0635 \u0627\u0644\u0642\u0635 \u0627\u0644\u0645\u062b\u0642\u0628\u064a \u062d\u0648\u0644 \u0627\u0644\u0639\u0645\u0648\u062f",
+      "result": "pass",
+      "computed_value": 0.62,
+      "limit_value": 1.0,
+      "unit": "ratio Vu/\u03c6Vn",
+      "code_reference": "ACI 318-19 \u00a722.6"
+    },
+    {
+      "check_id": "ONEWAY-001",
+      "description": "\u0641\u062d\u0635 \u0627\u0644\u0642\u0635 \u0627\u0644\u0623\u062d\u0627\u062f\u064a \u0627\u0644\u0627\u062a\u062c\u0627\u0647",
+      "result": "pass",
+      "computed_value": 0.71,
+      "limit_value": 1.0,
+      "unit": "ratio Vu/\u03c6Vn",
+      "code_reference": "ACI 318-19 \u00a722.5"
+    },
+    {
+      "check_id": "FLEXURE-001",
+      "description": "\u0641\u062d\u0635 \u0627\u0644\u062a\u0633\u0644\u064a\u062d \u2014 \u0627\u0644\u062d\u062f \u0627\u0644\u0623\u062f\u0646\u0649",
+      "result": "pass",
+      "computed_value": 2011,
+      "limit_value": 1840,
+      "unit": "mm2",
+      "code_reference": "ACI 318-19 \u00a77.6.1"
+    }
+  ],
+  "errors": [],
+  "metadata": {
+    "processed_at": "2026-05-30T00:00:00Z",
+    "engine_version": "0.1.0-alpha",
+    "processing_ms": 312
+  }
+}
