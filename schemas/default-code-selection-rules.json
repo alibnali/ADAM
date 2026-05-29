@@ -1,0 +1,42 @@
+{
+  "_description": "ADAM default code selection algorithm. Applied when design_code.primary is absent in the request. Rules evaluated in order; first match wins.",
+  "version": "1.0",
+  "rules": [
+    {
+      "rule_id": "DCR-001",
+      "condition": { "discipline": "structural", "region_hint": "Saudi Arabia" },
+      "default_code": "SBC_304_2018",
+      "assumption_confidence": "medium"
+    },
+    {
+      "rule_id": "DCR-002",
+      "condition": { "discipline": "structural", "region_hint": "EU" },
+      "default_code": "EC2_2004",
+      "assumption_confidence": "medium"
+    },
+    {
+      "rule_id": "DCR-003",
+      "condition": { "discipline": "structural", "region_hint": "UK" },
+      "default_code": "BS_8110_1997",
+      "assumption_confidence": "medium"
+    },
+    {
+      "rule_id": "DCR-004",
+      "condition": { "discipline": "structural", "region_hint": "*" },
+      "default_code": "ACI_318_19",
+      "assumption_confidence": "medium"
+    },
+    {
+      "rule_id": "DCR-005",
+      "condition": { "discipline": "*", "region_hint": "*" },
+      "default_code": "ACI_318_19",
+      "assumption_confidence": "low"
+    }
+  ],
+  "conflict_rules": [
+    { "code": "CODE-CONFLICT-PHI",           "severity": "warning", "action": "use_primary" },
+    { "code": "CODE-CONFLICT-SUPPLEMENTARY", "severity": "error",   "action": "use_primary_defaults" },
+    { "code": "CODE-UNSUPPORTED",            "severity": "error",   "action": "reject" },
+    { "code": "CODE-DEFAULT-APPLIED",        "severity": "info",    "action": "log_assumption" }
+  ]
+}
