@@ -1,0 +1,50 @@
+[
+  {
+    "entry_id": "ASM-NORM-001",
+    "field": "units.area",
+    "assumed_value": "mm2",
+    "reason": "units.area omitted — inferred from units.length = 'm' per ADAM inference rule IR-UNIT-01",
+    "source": "input_normalizer",
+    "confidence": "high",
+    "requires_engineer_confirmation": false
+  },
+  {
+    "entry_id": "ASM-STR-001",
+    "field": "cover_mm",
+    "assumed_value": 50,
+    "reason": "Minimum cover for footings in contact with soil",
+    "code_reference": "ACI 318-19 Table 20.6.1.3",
+    "source": "structural_engine",
+    "confidence": "high",
+    "requires_engineer_confirmation": false
+  },
+  {
+    "entry_id": "ASM-STR-002",
+    "field": "phi_flexure",
+    "assumed_value": 0.90,
+    "reason": "Strength reduction factor for flexure (tension-controlled)",
+    "code_reference": "ACI 318-19 Table 21.2.1",
+    "source": "structural_engine",
+    "confidence": "high",
+    "requires_engineer_confirmation": false
+  },
+  {
+    "entry_id": "ASM-STR-003",
+    "field": "phi_shear",
+    "assumed_value": 0.75,
+    "reason": "Strength reduction factor for shear",
+    "code_reference": "ACI 318-19 Table 21.2.1",
+    "source": "structural_engine",
+    "confidence": "high",
+    "requires_engineer_confirmation": false
+  },
+  {
+    "entry_id": "ASM-DRW-001",
+    "field": "drawing.scale",
+    "assumed_value": "1:50",
+    "reason": "Default scale for isolated footing plan and section drawings",
+    "source": "drawing_engine",
+    "confidence": "high",
+    "requires_engineer_confirmation": false
+  }
+]

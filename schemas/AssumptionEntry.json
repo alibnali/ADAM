@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alibnali/ADAM/schemas/AssumptionEntry.json",
+  "title": "AssumptionEntry",
+  "description": "A single assumption made by ADAM during processing.",
+  "type": "object",
+  "required": ["entry_id", "field", "assumed_value", "reason", "source", "confidence"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id":                       { "type": "string", "pattern": "^ASM-[A-Z0-9_-]+$" },
+    "field":                          { "type": "string" },
+    "assumed_value":                  {},
+    "original_value":                 {},
+    "reason":                         { "type": "string" },
+    "code_reference":                 { "type": "string" },
+    "source": {
+      "type": "string",
+      "enum": ["input_normalizer", "structural_engine", "civil_engine", "mep_engine", "drawing_engine", "report_engine", "orchestrator"]
+    },
+    "confidence":                     { "type": "string", "enum": ["high", "medium", "low"] },
+    "requires_engineer_confirmation": { "type": "boolean", "default": false }
+  }
+}

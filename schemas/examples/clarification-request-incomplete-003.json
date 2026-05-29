@@ -1,0 +1,66 @@
+[
+  {
+    "question_id": "CLQ-LOAD-001",
+    "field": "column_load_kN",
+    "question": "\u0645\u0627 \u0647\u0648 \u0627\u0644\u062d\u0645\u0644 \u0627\u0644\u0631\u0623\u0633\u064a \u0639\u0644\u0649 \u0627\u0644\u0639\u0645\u0648\u062f (P) \u0628\u0627\u0644\u0643\u064a\u0644\u0648 \u0646\u064a\u0648\u062a\u0646\u061f",
+    "hint": "\u064a\u0634\u0645\u0644 \u0627\u0644\u0623\u062d\u0645\u0627\u0644 \u0627\u0644\u0645\u064a\u062a\u0629 \u0648\u0627\u0644\u062d\u064a\u0629 \u0627\u0644\u0645\u062d\u0633\u0648\u0628\u0629 \u0639\u0644\u0649 \u0627\u0644\u0639\u0645\u0648\u062f",
+    "example": 800,
+    "expected_type": "number",
+    "expected_unit": "kN",
+    "valid_range": { "min": 10, "max": 50000 },
+    "source": "input_normalizer",
+    "priority": 1,
+    "blocking": true
+  },
+  {
+    "question_id": "CLQ-SOIL-001",
+    "field": "bearing_capacity_kPa",
+    "question": "\u0645\u0627 \u0647\u064a \u0642\u062f\u0631\u0629 \u062a\u062d\u0645\u0644 \u0627\u0644\u062a\u0631\u0628\u0629 \u0627\u0644\u0645\u0633\u0645\u0648\u062d \u0628\u0647\u0627 (qa) \u0628\u0627\u0644\u0643\u064a\u0644\u0648 \u0628\u0627\u0633\u0643\u0627\u0644\u061f",
+    "hint": "\u0645\u0646 \u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u062a\u0631\u0628\u0629 \u0623\u0648 \u0627\u0644\u062a\u0642\u062f\u064a\u0631 \u0627\u0644\u0645\u064a\u062f\u0627\u0646\u064a",
+    "example": 150,
+    "expected_type": "number",
+    "expected_unit": "kPa",
+    "valid_range": { "min": 50, "max": 1000 },
+    "source": "input_normalizer",
+    "priority": 2,
+    "blocking": true
+  },
+  {
+    "question_id": "CLQ-DEPTH-001",
+    "field": "foundation_depth_m",
+    "question": "\u0645\u0627 \u0647\u0648 \u0639\u0645\u0642 \u0627\u0644\u062a\u0623\u0633\u064a\u0633 \u0627\u0644\u0645\u0637\u0644\u0648\u0628 (Df) \u0628\u0627\u0644\u0645\u062a\u0631\u061f",
+    "example": 1.5,
+    "expected_type": "number",
+    "expected_unit": "m",
+    "valid_range": { "min": 0.5, "max": 10 },
+    "source": "input_normalizer",
+    "priority": 3,
+    "blocking": true
+  },
+  {
+    "question_id": "CLQ-CONC-001",
+    "field": "concrete_fck_MPa",
+    "question": "\u0645\u0627 \u0647\u064a \u0645\u0642\u0627\u0648\u0645\u0629 \u0627\u0644\u062e\u0631\u0633\u0627\u0646\u0629 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 (f'c \u0623\u0648 fck) \u0628\u0627\u0644\u0645\u064a\u063a\u0627\u0628\u0627\u0633\u0643\u0627\u0644\u061f",
+    "hint": "\u0645\u062b\u0627\u0644: 25 MPa = C25",
+    "example": 25,
+    "expected_type": "number",
+    "expected_unit": "MPa",
+    "valid_range": { "min": 17, "max": 100 },
+    "source": "input_normalizer",
+    "priority": 4,
+    "blocking": true
+  },
+  {
+    "question_id": "CLQ-STEEL-001",
+    "field": "steel_fyk_MPa",
+    "question": "\u0645\u0627 \u0647\u0648 \u062d\u062f \u0627\u0644\u062e\u0636\u0648\u0639 \u0644\u0644\u062d\u062f\u064a\u062f (fy \u0623\u0648 fyk) \u0628\u0627\u0644\u0645\u064a\u063a\u0627\u0628\u0627\u0633\u0643\u0627\u0644\u061f",
+    "hint": "\u0645\u062b\u0627\u0644: 420 MPa = Grade 60",
+    "example": 420,
+    "expected_type": "number",
+    "expected_unit": "MPa",
+    "valid_range": { "min": 200, "max": 700 },
+    "source": "input_normalizer",
+    "priority": 5,
+    "blocking": true
+  }
+]
